@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Створити користувача</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-$END$
+<main class="container" style="max-width: 400px;">
+    <div class="user-card">
+        <h2>Новий користувач</h2>
+        <form>
+            <label>Логін</label>
+            <input type="text" style="width: 100%; margin-bottom: 10px;">
+            <label>Пароль</label>
+            <input type="password" style="width: 100%;">
+            <p class="error-message">Пароль має бути не менше 8 символів</p>
+
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button type="submit" class="btn-primary">Ok</button>
+                <button type="button" onclick="history.back()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</main>
 </body>
 </html>
