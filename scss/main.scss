@@ -81,10 +81,6 @@ header, .main-header {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   margin-top: 20px;
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 //сітка для користувачів
@@ -547,14 +543,16 @@ a.btn-primary {
 //адаптивність для кошика
 @media (max-width: 650px) {
   .cart-wrapper {
-    padding: 10px !important;
+    overflow-x: auto;
+    padding: 10px;
   }
 
   .cart-table {
-    font-size: 0.9rem;
+    min-width: 500px;
 
-    td, th {
-      padding: 10px 12px !important;
+    th, td {
+      padding: 8px 5px;
+      font-size: 0.85rem;
     }
   }
 
@@ -592,6 +590,12 @@ a.btn-primary {
   .cart-checkout-btn {
     padding: 10px 20px !important;
     font-size: 0.95rem !important;
+  }
+
+  .cart-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
   }
 }
 
@@ -660,6 +664,20 @@ a.btn-primary {
 .input-error {
   border-color: $error-color !important;
   background-color: #fff8f8;
+}
+
+@media (max-width: 480px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .book-card {
+    margin-bottom: 20px;
+    img {
+      height: auto;
+    }
+  }
 }
 
 footer, .main-footer {
