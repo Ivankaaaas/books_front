@@ -577,15 +577,6 @@ a.btn-primary svg {
     font-size: 1.5rem;
   }
 }
-@media (max-width: 450px) {
-  .user-list-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .user-list-header .btn-primary {
-    text-align: center;
-  }
-}
 
 .role-admin {
   color: #e74c3c;
@@ -628,14 +619,30 @@ a.btn-primary svg {
 
 @media (max-width: 480px) {
   .book-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
     padding: 0 10px;
   }
   .book-card {
-    margin-bottom: 20px;
+    padding: 10px;
   }
   .book-card img {
-    height: auto;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+  .book-card h3 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.2;
+  }
+  .book-card p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  .book-card .btn-primary {
+    padding: 8px 10px;
+    font-size: 0.8rem;
   }
 }
 footer, .main-footer {
