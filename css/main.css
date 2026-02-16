@@ -320,7 +320,7 @@ a.btn-primary svg {
   display: inline !important;
   font-weight: bold;
   text-decoration: none;
-  color: #3D5690 !important;
+  color: #3d5690 !important;
   transition: color 0.3s ease;
 }
 .auth-hint-link:hover {
@@ -402,8 +402,8 @@ a.btn-primary svg {
 }
 
 .cart-thead-row {
-  border-bottom: 2px solid #3D5690;
-  color: #3D5690;
+  border-bottom: 2px solid #3d5690;
+  color: #3d5690;
 }
 
 .cart-th-left {
@@ -437,7 +437,7 @@ a.btn-primary svg {
 .cart-book-title strong {
   display: block !important;
   font-size: 1.1rem;
-  color: #3D5690;
+  color: #3d5690;
   margin-bottom: 0 !important;
   line-height: 1;
 }
@@ -458,9 +458,9 @@ a.btn-primary svg {
 .qty-btn {
   width: 28px;
   height: 28px;
-  border: 1px solid #3D5690 !important;
+  border: 1px solid #3d5690 !important;
   background: white !important;
-  color: #3D5690 !important;
+  color: #3d5690 !important;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -481,7 +481,7 @@ a.btn-primary svg {
 
 .cart-price-total {
   font-weight: bold;
-  color: #3D5690;
+  color: #3d5690;
 }
 
 .cart-delete-btn {
@@ -500,7 +500,7 @@ a.btn-primary svg {
 }
 
 .cart-total-value {
-  color: #3D5690;
+  color: #3d5690;
   font-size: 1.8rem;
 }
 
