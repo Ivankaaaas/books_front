@@ -10,13 +10,16 @@
 <body class="page-body">
 <header class="main-header">
     <div class="header-left">
-        <div class="logo-wrapper"><span class="logo-text">BookStore</span></div>
+        <a href="index.html" class="logo-link nav-link">
+            <span class="logo-text">BookStore</span>
+        </a>
     </div>
     <div class="header-right">
         <nav>
             <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">Каталог</a></li>
-                <li><a href="users.html" class="nav-link">Користувачі</a></li>
+                <li>
+                    <a href="users.html" id="admin-nav-link" class="nav-link" style="display: none;">Користувачі</a>
+                </li>
                 <li>
                     <a href="cart.html" class="nav-link header-icon-link" title="Кошик">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -25,7 +28,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="login.html" class="nav-link header-icon-link" title="Профіль">
+                    <a href="login.html" id="profile-icon-link" class="nav-link header-icon-link" title="Профіль">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
                         </svg>
@@ -38,14 +41,18 @@
 <main class="container">
     <a href="index.html" class="back-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
+            <path d="M12 19l-7-7 7-7M19 12H5"/>
         </svg>
         Продовжити покупки
     </a>
 
     <h1>Ваш кошик</h1>
 
-    <div class="auth-card cart-wrapper">
+    <div id="cart-loader" style="text-align: center; padding: 40px;">
+        <p>Завантаження кошика...</p>
+    </div>
+
+    <div id="cart-main-content" class="auth-card cart-wrapper" style="display: none;">
         <table class="cart-table">
             <thead>
             <tr class="cart-thead-row">
@@ -56,52 +63,21 @@
                 <th class="cart-th-left">Дія</th>
             </tr>
             </thead>
-            <tbody>
-            <tr class="cart-tbody-row">
-                <td class="cart-td-book">
-                    <a href="book-details.html">
-                        <img src="https://uabooks.net/posters/210.jpg" class="cart-img" alt="Обкладинка">
-                    </a>
-                    <div>
-                        <a href="book-details.html" class="cart-book-title">
-                            <strong>Цифрова фортеця</strong>
-                        </a>
-                        <small class="cart-book-author">Ден Браун</small>
-                    </div>
-                </td>
-                <td>450 грн</td>
-                <td>
-                    <div class="cart-qty-wrapper">
-                        <button class="qty-btn">-</button>
-                        <span class="qty-num">1</span>
-                        <button class="qty-btn">+</button>
-                    </div>
-                </td>
-                <td class="cart-price-total">450 грн</td>
-                <td>
-                    <button class="btn-delete cart-delete-btn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                </td>
-            </tr>
+            <tbody id="cart-items-container">
             </tbody>
         </table>
 
         <div class="cart-footer">
             <div class="cart-total-label">
-                Разом до оплати: <strong class="cart-total-value">450 грн</strong>
+                Разом до оплати: <strong class="cart-total-value">0 грн</strong>
             </div>
-            <button class="btn-primary cart-checkout-btn">
-                Оформити замовлення
-            </button>
+            <button class="btn-primary cart-checkout-btn">Оформити замовлення</button>
         </div>
     </div>
 </main>
 <footer class="main-footer">
     <p>&copy; 2026 Книгарня</p>
 </footer>
+<script src="main.js"></script>
 </body>
 </html>
