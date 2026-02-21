@@ -9,16 +9,19 @@
 <body class="page-body">
 <header class="main-header">
     <div class="header-left">
-        <div class="logo-wrapper">
-            <span class="logo-text">BookStore</span>
+        <div class="header-left">
+            <a href="index.html" class="logo-link nav-link">
+                <span class="logo-text">BookStore</span>
+            </a>
         </div>
     </div>
 
     <div class="header-right">
         <nav>
             <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">Каталог</a></li>
-                <li><a href="users.html" class="nav-link">Користувачі</a></li>
+                <li>
+                    <a href="users.html" id="admin-nav-link" class="nav-link" style="display: none;">Користувачі</a>
+                </li>
                 <li>
                     <a href="cart.html" class="nav-link header-icon-link" title="Кошик">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -27,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="login.html" class="nav-link header-icon-link" title="Профіль">
+                    <a href="login.html" id="profile-icon-link" class="nav-link header-icon-link" title="Профіль">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
                         </svg>
@@ -40,30 +43,11 @@
 <main class="container">
     <h1>Наші книги</h1>
     <div class="book-grid">
-        <article class="book-card">
-            <a href="book-details.html" class="book-card-link">
-                <img src="https://static.yakaboo.ua/media/cloudflare/product/webp/600x840/i/n/internat_1.jpg" alt="Інтернат">
-                <div class="book-card-info">
-                    <h2>Інтернат</h2>
-                    <p>Ціна: 320 грн</p>
-                </div>
-            </a>
-            <button class="btn-primary">У кошик</button>
-        </article>
-        <article class="book-card">
-            <a href="book-details.html" class="book-card-link">
-                <img src="https://uabooks.net/posters/210.jpg" alt="Цифрова фортеця">
-                <div class="book-card-info">
-                    <h2>Цифрова фортеця</h2>
-                    <p>Ціна: 450 грн</p>
-                </div>
-            </a>
-            <button class="btn-primary">У кошик</button>
-        </article>
     </div>
 </main>
 <footer class="main-footer">
     <p>&copy; 2026 Книгарня</p>
 </footer>
+<script src="main.js"></script>
 </body>
 </html>
