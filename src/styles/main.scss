@@ -87,12 +87,18 @@ header, .main-header {
 //сітка для каталогу
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    row-gap: 40px;
-    column-gap: 20px;
-    padding: 20px;
-    height: auto !important;
-    min-height: 100vh;
+    // Створює стільки колонок по 250px, скільки влізе в екран
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    // Притискає книги вліво, якщо їх мало (наприклад, після пошуку)
+    justify-content: start;
+    align-items: stretch;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr; // Одна колонка на телефонах
+        justify-items: center;
+    }
 }
 
 .similar-products {
@@ -817,4 +823,83 @@ footer, .main-footer {
     border-top: 1px solid #ddd;
     margin-top: 4rem;
     color: #666;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+
+    .header-search-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #fff;
+        color: #fff;
+        width: 150px;
+        margin-right: 8px;
+        outline: none;
+        font-size: 0.9rem;
+
+        &::placeholder {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+    }
+
+    .search-btn {
+        background: transparent !important;
+        border: none !important;
+        padding: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            color: #ffc107;
+            transform: scale(1.1);
+        }
+
+        svg {
+            display: block;
+        }
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
 }

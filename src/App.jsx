@@ -5,7 +5,6 @@ import {
     Route,
     Navigate,
 } from 'react-router-dom';
-
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -14,13 +13,14 @@ import UsersPage from './pages/UsersPage';
 import EditUserPage from './pages/EditUserPage';
 import BookDetailPage from './pages/BookDetailPage';
 import CartPage from './pages/CartPage';
-
+import AddBookPage from './pages/AddBookPage';
 import Header from './components/Header';
 import authService from './services/authService';
 import './styles/main.scss';
 
 function App() {
     const [user, setUser] = useState(authService.getCurrentUser());
+    const [searchQuery, setSearchQuery] = useState('');
 
     const refreshUser = () => {
         setUser(authService.getCurrentUser());
@@ -32,9 +32,14 @@ function App() {
     return (
         <Router>
             <div className="page-body">
-                <Header key={isAuthenticated ? user.id : 'guest'} />
+                <Header
+                    key={isAuthenticated ? user.id : 'guest'}
+                    onSearch={setSearchQuery}
+                />
+
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/" element={<HomePage searchQuery={searchQuery} />} />
+
                     <Route
                         path="/login"
                         element={isAuthenticated
@@ -43,7 +48,9 @@ function App() {
                     />
                     <Route
                         path="/register"
-                        element={(isAuthenticated && !isAdmin) ? <Navigate to="/" replace /> : <RegisterPage onLogin={refreshUser} />}
+                        element={(isAuthenticated && !isAdmin)
+                            ? <Navigate to="/" replace />
+                            : <RegisterPage onLogin={refreshUser} />}
                     />
                     <Route
                         path="/profile"
@@ -63,10 +70,18 @@ function App() {
                             ? <EditUserPage />
                             : <Navigate to="/" replace />}
                     />
+                    <Route
+                        path="/add-book"
+                        element={isAdmin
+                            ? <AddBookPage />
+                            : <Navigate to="/" replace />}
+                    />
+
                     <Route path="/book/:id" element={<BookDetailPage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
+
                 <footer className="main-footer">
                     <p>
                         &copy; 2026 Книгарня
