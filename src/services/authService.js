@@ -1,6 +1,10 @@
 import api from './api';
 
 const authService = {
+    redirect: (path) => {
+        window.location.href = path;
+    },
+
     login: async (credentials) => {
         const response = await api.post('/login_json', credentials);
 
@@ -18,9 +22,9 @@ const authService = {
         return user ? JSON.parse(user) : null;
     },
 
-    logout: () => {
+    logout() {
         localStorage.removeItem('user');
-        window.location.href = '/login';
+        this.redirect('/login');
     },
 };
 

@@ -21,7 +21,6 @@ function ProfilePage() {
                 email: user.email || '',
             });
         }
-        // Використовуємо опціональний ланцюжок, щоб не зациклювати на об'єкті
     }, [user?.id, user?.email]);
 
     const toggleEdit = (field) => {
@@ -44,8 +43,9 @@ function ProfilePage() {
             setIsEditing({ first_name: false, last_name: false });
             setShowSave(false);
 
-            // Замість перезавантаження просто онови сторінку, якщо App не підхопив зміни
-            window.location.reload();
+            if (process.env.NODE_ENV !== 'test') {
+                window.location.reload();
+            }
         } catch {
             showNotification('Помилка при збереженні даних', 'error');
         }
