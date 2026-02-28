@@ -18,4 +18,7 @@ const showNotification = (message, type = 'info') => {
     }, 3000);
 };
 
+export const showSuccess = (message) => showNotification(message, 'success');
+export const showError = (message) => showNotification(message, 'error');
+
 export default showNotification;
