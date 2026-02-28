@@ -10,7 +10,7 @@ function AddBookPage() {
         title: '',
         author: '',
         price: '',
-        image: '',
+        image_url: '',
         genre: '',
         publisher: '',
         language: '',
